@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\RiderProjects\\SocialMed.API\\SocialMed.API\\SocialMed.API.csproj": {}
+    "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\RiderProjects\\SocialMed.API\\SocialMed.API\\SocialMed.API.csproj": {
+    "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\RiderProjects\\SocialMed.API\\SocialMed.API\\SocialMed.API.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj",
         "projectName": "SocialMed.API",
-        "projectPath": "C:\\Users\\USER\\RiderProjects\\SocialMed.API\\SocialMed.API\\SocialMed.API.csproj",
+        "projectPath": "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\RiderProjects\\SocialMed.API\\SocialMed.API\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0-preview.4.22229.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.0-preview.4.22229.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational.Design": {
+              "target": "Package",
+              "version": "[2.0.0-preview1-final, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.3.1, )"
