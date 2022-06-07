@@ -1,0 +1,60 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SocialMed.API.SocialMedCenter.Domain.Models;
+using SocialMed.API.SocialMedCenter.Domain.Repositories;
+using SocialMed.API.SocialMedCenter.Persistence.Context;
+
+namespace SocialMed.API.SocialMedCenter.Persistence.Repositories;
+
+public class ChatRepository :BaseRepository, IChatRepository
+{
+    public ChatRepository(AppDbContext context): base(context) 
+    {
+        
+    }
+
+    public async Task<IEnumerable<Chat>> ListAsync()//***
+    {
+        return await _context.Chats.
+            Include(p=>p.User).
+            ToListAsync();
+    }
+
+    public async Task AddAsync(Chat chat)//***
+    {
+        await _context.Chats.AddAsync(chat);
+    }
+
+    public async Task<Chat> FindByIdAsync(int id)//****
+    {
+        return await _context.Chats
+            .Include(p => p.User)
+            .FirstOrDefaultAsync(p => p.Id == id);
+    }
+
+    public async Task<IEnumerable<Chat>> FindByUserIdAsync(int id)//***
+    {
+        return await _context.Chats
+            .Where(p => p.UserId == id)
+            .Include(p => p.User)
+            .ToListAsync();
+    }
+
+    public async Task<Chat> FindByUserIdAndUserDestinyIdAsync(int userid, int userDestinyid)
+    {
+        return await _context.Chats
+            .Where(p => p.UserId == userid).Where(p => p.UserDestinyId == userDestinyid)
+            .Include(p => p.User)
+            .Include(p => p.UserDestiny)
+            .FirstOrDefaultAsync(p => p.UserId == userid && p.UserDestinyId==userDestinyid);////  revisar si funciona correctamente
+    }
+  
+    public void Update(Chat chat)//***
+    {
+        _context.Chats.Update(chat);
+    }
+
+    public void Remove(Chat chat)//***
+    {
+        _context.Chats.Remove(chat);
+    }
+}

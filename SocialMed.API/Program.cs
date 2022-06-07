@@ -9,6 +9,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
+
+
+
+
+// Validation for ensuring Database Objects are created
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

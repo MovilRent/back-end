@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="11.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-preview.4.22229.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.0-preview.4.22229.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Design" Version="2.0.0-preview1-final" />
@@ -17,13 +18,6 @@
 
     <ItemGroup>
       <Folder Include="SocialMedCenter\Controllers" />
-      <Folder Include="SocialMedCenter\Domain\Models" />
-      <Folder Include="SocialMedCenter\Domain\Repositories" />
-      <Folder Include="SocialMedCenter\Domain\Services\Comunication" />
-      <Folder Include="SocialMedCenter\Mapping" />
-      <Folder Include="SocialMedCenter\Persistence\Context" />
-      <Folder Include="SocialMedCenter\Persistence\Repositories" />
-      <Folder Include="SocialMedCenter\Resources" />
     </ItemGroup>
 
 </Project>
