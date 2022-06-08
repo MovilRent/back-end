@@ -8,12 +8,12 @@ public class ResourceToModelProfile : Profile
 {
     public ResourceToModelProfile()
     {
-        CreateMap<ChatResource, Chat>();
-        CreateMap<CommentResource, Comment>();
-        CreateMap<ForumResource, Forum>();
-        CreateMap<MessageResource, Message>();
-        CreateMap<RatingResource, Rating>();
-        CreateMap<UserResource, User>();
+        CreateMap<SaveChatResource, Chat>();
+        CreateMap<SaveCommentResource, Comment>();
+        CreateMap<SaveForumResource, Forum>();
+        CreateMap<SaveMessageResource, Message>();
+        CreateMap<SaveRatingResource, Rating>();
+        CreateMap<SaveUserResource, User>();
     }
     
 }

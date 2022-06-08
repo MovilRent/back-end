@@ -7,7 +7,7 @@ public class ForumResource
     public int Id { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
     
     //relationsship
  

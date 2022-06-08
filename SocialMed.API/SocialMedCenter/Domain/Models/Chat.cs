@@ -10,5 +10,4 @@ public class Chat
     public int UserDestinyId { get; set; }
     public User UserDestiny { get; set; }
     public IList<Message> MyMessages { get; set; } = new List<Message>();
-    public IList<Message> OtherMessages { get; set; } = new List<Message>();
 }

@@ -8,6 +8,7 @@ public class UserResource
     public string LastName { get; set; } 
     public int Age { get; set; } 
     public string Image { get; set; }
+    
     public string Email { get; set; }
     public string Specialist { get; set; }
     public int Recommendation { get; set; }

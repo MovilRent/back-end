@@ -11,11 +11,11 @@ public class SaveForumResource
     [Required]
     public string Content { get; set; }
     [Required]
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
     
     //relationsship
     
     [Required]
-    public string UserId { get; set; }
+    public int UserId { get; set; }
 
 }

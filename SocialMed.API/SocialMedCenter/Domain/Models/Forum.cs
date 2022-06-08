@@ -7,7 +7,7 @@ public class Forum
     public int Id { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }
-    public DateType Date { get; set; }
+    public DateTime Date { get; set; }
     
     //relationsship
     public int UserId { get; set; }
