@@ -14,10 +14,10 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Design" Version="2.0.0-preview1-final" />
         <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Forums\Controllers" />
       <Folder Include="SocialMedCenter\Controllers" />
     </ItemGroup>
 

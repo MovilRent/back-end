@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O8E6sbZjTPPHcasRi5VFQeT0fQ0PQ38rD/CrbLVpfNtqWvOfn1e8LGFXtZGm95D62QvGbX3TKdYTEpY+5DTpxw==",
+  "dgSpecHash": "+nuVW/OqjOIJ3WuXPnOwrU5iPXOSQliQqcfoitkqgg6sih33Zv7kj4TqjAVmwgvExbTovYMtt/zNI0fQRTLAPg==",
   "success": true,
   "projectFilePath": "D:\\datos u\\5to ciclo\\Apps Web\\tb4\\back-end-Feature-implement-persistence-domain-and-resources\\SocialMed.API\\SocialMed.API.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "D:\\Usuarios\\mchumbes\\.nuget\\packages\\mysql.entityframeworkcore\\6.0.1\\mysql.entityframeworkcore.6.0.1.nupkg.sha512",
     "D:\\Usuarios\\mchumbes\\.nuget\\packages\\netstandard.library\\2.0.0-preview1-25301-01\\netstandard.library.2.0.0-preview1-25301-01.nupkg.sha512",
     "D:\\Usuarios\\mchumbes\\.nuget\\packages\\swashbuckle.aspnetcore\\6.3.1\\swashbuckle.aspnetcore.6.3.1.nupkg.sha512",
+    "D:\\Usuarios\\mchumbes\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.3.1\\swashbuckle.aspnetcore.annotations.6.3.1.nupkg.sha512",
     "D:\\Usuarios\\mchumbes\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
     "D:\\Usuarios\\mchumbes\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
     "D:\\Usuarios\\mchumbes\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.3.1\\swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512",
