@@ -77,8 +77,8 @@ public class ForumsController: ControllerBase
         if (!result.Success)
             return BadRequest(result.Message);
         
-        var categoryResource = _mapper.Map<Forum, ForumResource>(result.Resource);
+        var forumResource = _mapper.Map<Forum, ForumResource>(result.Resource);
 
-        return Ok(categoryResource);
+        return Ok(forumResource);
     }
 }

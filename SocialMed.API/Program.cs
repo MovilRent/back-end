@@ -3,6 +3,10 @@ using SocialMed.API.Forums.Domain.Repositories;
 using SocialMed.API.Forums.Domain.Services;
 using SocialMed.API.Forums.Persistence.Repositories;
 using SocialMed.API.Forums.Services;
+using SocialMed.API.Notifications.Domain.Repositories;
+using SocialMed.API.Notifications.Domain.Services;
+using SocialMed.API.Notifications.Persistence.Repositories;
+using SocialMed.API.Notifications.Services;
 using SocialMed.API.SocialMedCenter.Domain.Repositories;
 using SocialMed.API.SocialMedCenter.Domain.Services;
 using SocialMed.API.SocialMedCenter.Mapping;
@@ -38,6 +42,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IForumRepository, ForumRepository>();
 builder.Services.AddScoped<IForumService, ForumService>();
+
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 builder.Services.AddAutoMapper(typeof(ModelToResourceProfile),
     typeof(ResourceToModelProfile));
