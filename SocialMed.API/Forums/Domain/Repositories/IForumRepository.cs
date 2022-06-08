@@ -7,6 +7,7 @@ public interface IForumRepository
     Task<IEnumerable<Forum>> ListAsync();
     Task AddAsync(Forum forum);
     Task<Forum> FindByIdAsync(int id);
+    Task<Forum> FindByTitleAsync(string title);
     Task<IEnumerable<Forum>> ListByUserIdAsync(int id);
 
     void Update(Forum forum);
