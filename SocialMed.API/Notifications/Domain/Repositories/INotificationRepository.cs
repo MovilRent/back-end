@@ -7,6 +7,6 @@ public interface INotificationRepository
     Task<IEnumerable<Notification>> ListAsync();
     Task AddAsync(Notification notification);
     Task<Notification> FindByIdAsync(int id);
-    void Update(Notification notification);
+    Task<Notification> FindByTitleAndUserId(string title, int userId);
     void Remove(Notification notification);
 }

@@ -36,7 +36,7 @@ public class ForumService: IForumService
         }
         catch (Exception e)
         {
-            return new ForumResponse($"An error ocurred while saving forum: {e.Message}");
+            return new ForumResponse($"An error occurred while saving forum: {e.Message}");
         }
     }
 

@@ -28,9 +28,10 @@ public class NotificationRepository: BaseRepository, INotificationRepository
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
-    public void Update(Notification notification)
+    public async Task<Notification> FindByTitleAndUserId(string title, int userId)
     {
-        _context.Notifications.Update(notification);
+        return await _context.Notifications
+            .FirstOrDefaultAsync(p => p.Title == title && p.UserId == userId);
     }
 
     public void Remove(Notification notification)
