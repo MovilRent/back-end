@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Forums.Resources;
 using SocialMed.API.SocialMedCenter.Domain.Models;
 using SocialMed.API.SocialMedCenter.Resources;
 

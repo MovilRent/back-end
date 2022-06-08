@@ -1,4 +1,6 @@
-﻿namespace SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+
+namespace SocialMed.API.Forums.Domain.Models;
 
 public class Forum
 { 

@@ -1,7 +1,7 @@
-﻿using SocialMed.API.Shared.Domain.Services.Comunication;
-using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Shared.Domain.Services.Comunication;
 
-namespace SocialMed.API.SocialMedCenter.Domain.Services.Comunication;
+namespace SocialMed.API.Forums.Domain.Services.Comunication;
 
 public class ForumResponse : BaseResponse<Forum>
 {

@@ -1,4 +1,6 @@
-﻿namespace SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Forums.Domain.Models;
+
+namespace SocialMed.API.SocialMedCenter.Domain.Models;
 
 public class Comment
 {

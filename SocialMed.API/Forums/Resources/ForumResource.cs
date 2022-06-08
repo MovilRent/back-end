@@ -1,6 +1,6 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.SocialMedCenter.Resources;
 
-namespace SocialMed.API.SocialMedCenter.Resources;
+namespace SocialMed.API.Forums.Resources;
 
 public class ForumResource
 {

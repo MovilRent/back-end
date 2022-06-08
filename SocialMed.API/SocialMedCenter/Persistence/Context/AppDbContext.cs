@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Shared.Extensions;
 using SocialMed.API.SocialMedCenter.Domain.Models;
 

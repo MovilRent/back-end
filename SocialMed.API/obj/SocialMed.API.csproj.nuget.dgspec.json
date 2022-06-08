@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj": {}
+    "D:\\datos u\\5to ciclo\\Apps Web\\tb4\\back-end-Feature-implement-persistence-domain-and-resources\\SocialMed.API\\SocialMed.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj": {
+    "D:\\datos u\\5to ciclo\\Apps Web\\tb4\\back-end-Feature-implement-persistence-domain-and-resources\\SocialMed.API\\SocialMed.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj",
+        "projectUniqueName": "D:\\datos u\\5to ciclo\\Apps Web\\tb4\\back-end-Feature-implement-persistence-domain-and-resources\\SocialMed.API\\SocialMed.API.csproj",
         "projectName": "SocialMed.API",
-        "projectPath": "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Documents\\GitHub\\back-end\\SocialMed.API\\obj\\",
+        "projectPath": "D:\\datos u\\5to ciclo\\Apps Web\\tb4\\back-end-Feature-implement-persistence-domain-and-resources\\SocialMed.API\\SocialMed.API.csproj",
+        "packagesPath": "D:\\Usuarios\\mchumbes\\.nuget\\packages\\",
+        "outputPath": "D:\\datos u\\5to ciclo\\Apps Web\\tb4\\back-end-Feature-implement-persistence-domain-and-resources\\SocialMed.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "D:\\Usuarios\\mchumbes\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
