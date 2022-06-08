@@ -1,7 +1,8 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Forums.Domain.Services.Comunication;
 using SocialMed.API.SocialMedCenter.Domain.Services.Comunication;
 
-namespace SocialMed.API.SocialMedCenter.Domain.Services;
+namespace SocialMed.API.Forums.Domain.Services;
 
 public interface IForumService
 {

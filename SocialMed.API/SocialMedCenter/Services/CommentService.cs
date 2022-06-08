@@ -1,4 +1,5 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Forums.Domain.Repositories;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 using SocialMed.API.SocialMedCenter.Domain.Repositories;
 using SocialMed.API.SocialMedCenter.Domain.Services;
 using SocialMed.API.SocialMedCenter.Domain.Services.Comunication;

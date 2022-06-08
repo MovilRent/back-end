@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SocialMed.API.SocialMedCenter.Resources;
+namespace SocialMed.API.Forums.Resources;
 
 public class SaveForumResource
 {
@@ -11,7 +11,8 @@ public class SaveForumResource
     [Required]
     public string Content { get; set; }
     [Required]
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
+    //public DateOnly Date { get; set; }
     
     //relationsship
     

@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SocialMed.API.SocialMedCenter.Domain.Models;
-using SocialMed.API.SocialMedCenter.Domain.Repositories;
+using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Forums.Domain.Repositories;
+using SocialMed.API.Shared.Extensions;
 using SocialMed.API.SocialMedCenter.Persistence.Context;
+using SocialMed.API.SocialMedCenter.Persistence.Repositories;
 
-namespace SocialMed.API.SocialMedCenter.Persistence.Repositories;
+namespace SocialMed.API.Forums.Persistence.Repositories;
 
 public class ForumRepository :BaseRepository, IForumRepository
 {
@@ -28,6 +30,13 @@ public class ForumRepository :BaseRepository, IForumRepository
         return await _context.Forums
             .Include(p => p.User)
             .FirstOrDefaultAsync(p => p.Id == id);
+    }
+
+    public async Task<Forum> FindByTitleAsync(string title)
+    {
+        return await _context.Forums
+            .Include(p => p.User) 
+            .FirstOrDefaultAsync(p => p.Title.ToLower()==title.ToLower());
     }
 
     public async Task<IEnumerable<Forum>> ListByUserIdAsync(int id)
