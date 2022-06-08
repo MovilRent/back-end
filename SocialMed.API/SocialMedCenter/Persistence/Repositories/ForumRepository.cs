@@ -1,0 +1,50 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SocialMed.API.SocialMedCenter.Domain.Models;
+using SocialMed.API.SocialMedCenter.Domain.Repositories;
+using SocialMed.API.SocialMedCenter.Persistence.Context;
+
+namespace SocialMed.API.SocialMedCenter.Persistence.Repositories;
+
+public class ForumRepository :BaseRepository, IForumRepository
+{
+    public ForumRepository(AppDbContext context) : base(context)
+    {
+    }
+
+    public async Task<IEnumerable<Forum>> ListAsync()//*****
+    {
+        return await _context.Forums.
+            Include(p=>p.User).
+            ToListAsync();
+    }
+
+    public async Task AddAsync(Forum forum)//******
+    {
+        await _context.Forums.AddAsync(forum);
+    }
+
+    public async Task<Forum> FindByIdAsync(int id)
+    {
+        return await _context.Forums
+            .Include(p => p.User)
+            .FirstOrDefaultAsync(p => p.Id == id);
+    }
+
+    public async Task<IEnumerable<Forum>> ListByUserIdAsync(int id)
+    {
+        return await _context.Forums
+            .Where(p => p.UserId == id)
+            .Include(p => p.User)
+            .ToListAsync();
+    }
+
+    public void Update(Forum forum)
+    {
+        _context.Forums.Update(forum);
+    }
+
+    public void Remove(Forum forum)
+    {
+        _context.Forums.Remove(forum);
+    }
+}
