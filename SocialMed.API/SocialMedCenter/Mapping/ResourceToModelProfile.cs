@@ -14,6 +14,7 @@ public class ResourceToModelProfile : Profile
         CreateMap<MessageResource, Message>();
         CreateMap<RatingResource, Rating>();
         CreateMap<UserResource, User>();
+        CreateMap<ReportResource, Report>();
     }
     
 }

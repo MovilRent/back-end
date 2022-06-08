@@ -13,6 +13,7 @@ public class AppDbContext : DbContext
     public DbSet<Forum> Forums { get; set; }
     public DbSet<Rating> Ratings { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Report> Reports { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
     {
@@ -51,6 +52,11 @@ public class AppDbContext : DbContext
             .HasMany(p => p.Comments)
             .WithOne(p => p.User)
             .HasForeignKey(p => p.UserId);
+
+        builder.Entity<User>()
+            .HasMany(p => p.Reports)
+            .WithOne(p => p.User)
+            .HasForeignKey(p => p.UserId);
         
         
         ///////////////////////////////////////////
@@ -66,6 +72,14 @@ public class AppDbContext : DbContext
         builder.Entity<Forum>().Property(p => p.Date).IsRequired();
         builder.Entity<Forum>().Property(p => p.Content).HasMaxLength(500);
         builder.Entity<Forum>().Property(p => p.Title).HasMaxLength(200);
+        ///////////////////////////////////////////
+        builder.Entity<Report>().ToTable("Reports");
+        builder.Entity<Report>().HasKey(p => p.Id);
+        builder.Entity<Report>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Report>().Property(p => p.Title).HasMaxLength(200);
+        builder.Entity<Report>().Property(p => p.Content).HasMaxLength(500);
+        builder.Entity<Report>().Property(p => p.Date).IsRequired();
+        ///////////////////////////////////////////
         
         builder.Entity<Forum>()
             .HasMany(p => p.Comments)
