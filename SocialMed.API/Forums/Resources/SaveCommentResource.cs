@@ -6,8 +6,7 @@ public class SaveCommentResource
 {
     [Required]
     public DateTime Date { get; set; }
-    //public DateOnly Date { get; set; }
-    
+
     [Required]
     public string Content { get; set; }
     

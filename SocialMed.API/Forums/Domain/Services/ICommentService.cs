@@ -11,6 +11,6 @@ public interface ICommentService
 
 
     Task<CommentResponse> SaveAsync(Comment comment);
-    Task<CommentResponse> UpdateAsync(int id, Comment commnent);
+    Task<CommentResponse> UpdateAsync(int id, Comment comment);
     Task<CommentResponse> DeleteAsync(int id);
 }

@@ -7,7 +7,6 @@ public class Comment
     public int Id { get; set; }
     
     public DateTime Date { get; set; }
-    //public DateOnly Date { get; set; }
     public string Content { get; set; }
     //relationsship
     public int UserId { get; set; }

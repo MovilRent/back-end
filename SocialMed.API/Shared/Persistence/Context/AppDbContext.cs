@@ -26,34 +26,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(builder);
 
-        builder.Entity<Rating>().ToTable("Ratings");
-        builder.Entity<Rating>().HasKey(p => p.Id);
-        builder.Entity<Rating>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        
-        ////////////////////////////////////////////////////
-        builder.Entity<Message>().ToTable("Messages");
-        builder.Entity<Message>().HasKey(p => p.Id);
-        builder.Entity<Message>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<Message>().Property(p => p.Content).IsRequired();
-        
-        ////////////////////////////////////////////////////
-        builder.Entity<Chat>().ToTable("Chats");
-        builder.Entity<Chat>().HasKey(p => p.Id);
-        builder.Entity<Chat>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
-        //Relationships
-        builder.Entity<Chat>()
-            .HasMany(p => p.MyMessages)
-            .WithOne(p => p.Chat)
-            .HasForeignKey(p => p.ChatId);
-        
-        /*builder.Entity<Chat>()
-            .HasMany(p => p.OtherMessages)
-            .WithOne(p => p.Chat)
-            .HasForeignKey(p => p.ChatId);*/
-
-
-        /////////////////////////////////////////////////////
         builder.Entity<User>().ToTable("Users");
         builder.Entity<User>().HasKey(p => p.Id);
         builder.Entity<User>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
@@ -67,8 +39,6 @@ public class AppDbContext : DbContext
         builder.Entity<User>().Property(p => p.WorkPlace).IsRequired();
         builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(80);
         builder.Entity<User>().Property(p => p.Biography).IsRequired();
-        
-        
         
         // Relationships
         builder.Entity<User>()
@@ -110,6 +80,11 @@ public class AppDbContext : DbContext
             .HasMany(p => p.Ratings)
             .WithOne(p => p.Forum)
             .HasForeignKey(p => p.ForumId);
+        
+        /////////////////////////////////////////////////////
+        builder.Entity<Rating>().ToTable("Ratings");
+        builder.Entity<Rating>().HasKey(p => p.Id);
+        builder.Entity<Rating>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
         
 
         ////////////////////////////////////////////////////*/

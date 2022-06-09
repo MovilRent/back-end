@@ -9,8 +9,7 @@ public class Forum
     public string Content { get; set; }
     
     public DateTime Date { get; set; }
-    //public DateOnly Date { get; set; }
-    
+
     //relationsship
     public int UserId { get; set; }
     public User User { get; set; }

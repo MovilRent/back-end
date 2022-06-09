@@ -6,7 +6,7 @@ public class ChatResource
 {
     public int Id { get; set; }
     
-    //relationsships
+    //relationships
     public UserResource User1 { get; set; }
     public UserResource User2 { get; set; }
 }

@@ -35,8 +35,8 @@ public class ForumRepository :BaseRepository, IForumRepository
     public async Task<Forum> FindByTitleAsync(string title)
     {
         return await _context.Forums
-            .Include(p => p.User) 
-            .FirstOrDefaultAsync(p => p.Title.ToLower()==title.ToLower());
+            .Include(p => p.User)
+            .FirstOrDefaultAsync(p => p.Title == title);
     }
 
     public async Task<IEnumerable<Forum>> ListByUserIdAsync(int id)

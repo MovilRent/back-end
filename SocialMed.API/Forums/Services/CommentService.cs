@@ -71,7 +71,7 @@ public class CommentService: ICommentService
         }
     }
 
-    public async Task<CommentResponse> UpdateAsync(int id, Comment commnent)
+    public async Task<CommentResponse> UpdateAsync(int id, Comment comment)
     {
         var existingComment = await _commentRepository.FindByIdAsync(id);
         
@@ -79,14 +79,14 @@ public class CommentService: ICommentService
             return new CommentResponse("User not found.");
 
 
-        var existingForum = await _forumRepository.FindByIdAsync(commnent.ForumId);
-        var existingUser = await _forumRepository.FindByIdAsync(commnent.ForumId);
+        var existingForum = await _forumRepository.FindByIdAsync(comment.ForumId);
+        var existingUser = await _forumRepository.FindByIdAsync(comment.ForumId);
         if (existingForum == null||existingUser==null)
             return new CommentResponse("Invalid Forum o User not exist");
         
 
         // Modify Fields
-        existingComment.Content = commnent.Content;
+        existingComment.Content = comment.Content;
 
         try
         {
