@@ -1,4 +1,5 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Forums.Resources;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.SocialMedCenter.Resources;
 

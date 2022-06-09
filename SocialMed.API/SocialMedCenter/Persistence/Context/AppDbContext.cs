@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Notifications.Domain.Models;
 using SocialMed.API.Shared.Extensions;
 using SocialMed.API.SocialMedCenter.Domain.Models;
 
@@ -13,6 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<Forum> Forums { get; set; }
     public DbSet<Rating> Ratings { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Notification> Notifications { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
     {
@@ -22,6 +25,34 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(builder);
 
+        builder.Entity<Rating>().ToTable("Ratings");
+        builder.Entity<Rating>().HasKey(p => p.Id);
+        builder.Entity<Rating>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        
+        ////////////////////////////////////////////////////
+        builder.Entity<Message>().ToTable("Messages");
+        builder.Entity<Message>().HasKey(p => p.Id);
+        builder.Entity<Message>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Message>().Property(p => p.Content).IsRequired();
+        
+        ////////////////////////////////////////////////////
+        builder.Entity<Chat>().ToTable("Chats");
+        builder.Entity<Chat>().HasKey(p => p.Id);
+        builder.Entity<Chat>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+
+        //Relationships
+        builder.Entity<Chat>()
+            .HasMany(p => p.MyMessages)
+            .WithOne(p => p.Chat)
+            .HasForeignKey(p => p.ChatId);
+        
+        /*builder.Entity<Chat>()
+            .HasMany(p => p.OtherMessages)
+            .WithOne(p => p.Chat)
+            .HasForeignKey(p => p.ChatId);*/
+
+
+        /////////////////////////////////////////////////////
         builder.Entity<User>().ToTable("Users");
         builder.Entity<User>().HasKey(p => p.Id);
         builder.Entity<User>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
@@ -35,6 +66,8 @@ public class AppDbContext : DbContext
         builder.Entity<User>().Property(p => p.WorkPlace).IsRequired();
         builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(80);
         builder.Entity<User>().Property(p => p.Biography).IsRequired();
+        
+        
         
         // Relationships
         builder.Entity<User>()
@@ -77,12 +110,15 @@ public class AppDbContext : DbContext
             .WithOne(p => p.Forum)
             .HasForeignKey(p => p.ForumId);
         
-        /////////////////////////////////////////////////////
-        builder.Entity<Rating>().ToTable("Ratings");
-        builder.Entity<Rating>().HasKey(p => p.Id);
-        builder.Entity<Rating>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
 
-        
+        ////////////////////////////////////////////////////*/
+
+        builder.Entity<Notification>().ToTable("Notifications");
+        builder.Entity<Notification>().HasKey(p => p.Id);
+        builder.Entity<Notification>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Notification>().Property(p => p.Title).IsRequired().HasMaxLength(30);
+        builder.Entity<Notification>().Property(p => p.UserId).IsRequired();
+
         // Apply Snake Case Naming Convention
         
         builder.UseSnakeCaseNamingConvention();

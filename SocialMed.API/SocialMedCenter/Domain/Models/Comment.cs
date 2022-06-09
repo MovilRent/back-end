@@ -1,9 +1,13 @@
-﻿namespace SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Forums.Domain.Models;
+
+namespace SocialMed.API.SocialMedCenter.Domain.Models;
 
 public class Comment
 {
     public int Id { get; set; }
-    public DateOnly Date { get; set; }
+    
+    public DateTime Date { get; set; }
+    //public DateOnly Date { get; set; }
     public string Content { get; set; }
     //relationsship
     public int UserId { get; set; }
