@@ -5,7 +5,7 @@ using SocialMed.API.Security.Domain.Services;
 using SocialMed.API.Security.Resources;
 using SocialMed.API.Shared.Extensions;
 
-namespace SocialMed.API.Forums.Controllers;
+namespace SocialMed.API.Security.Controllers;
 
 [ApiController]
 [Route("/api/v1/[controller]")]
