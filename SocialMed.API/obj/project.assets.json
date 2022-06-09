@@ -6171,24 +6171,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gonchis\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gonchis\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj",
+      "projectUniqueName": "D:\\git-section\\Nueva carpeta\\back-end\\SocialMed.API\\SocialMed.API.csproj",
       "projectName": "SocialMed.API",
-      "projectPath": "C:\\Users\\Gonchis\\Documents\\GitHub\\back-end\\SocialMed.API\\SocialMed.API.csproj",
-      "packagesPath": "C:\\Users\\Gonchis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gonchis\\Documents\\GitHub\\back-end\\SocialMed.API\\obj\\",
+      "projectPath": "D:\\git-section\\Nueva carpeta\\back-end\\SocialMed.API\\SocialMed.API.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\git-section\\Nueva carpeta\\back-end\\SocialMed.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Gonchis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6258,7 +6268,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

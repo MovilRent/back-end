@@ -70,6 +70,10 @@ public class ForumsController: ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [ProducesResponseType(typeof(ForumResource), 202)]
+    [ProducesResponseType(typeof(List<string>), 400)]
+    [SwaggerResponse(201, "The forum was successfully deleted.", typeof(ForumResource))]
+    [SwaggerResponse(400, "The forum id is not valid.")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
         var result = await _forumService.DeleteAsync(id);
