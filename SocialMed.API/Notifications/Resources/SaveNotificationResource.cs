@@ -10,4 +10,7 @@ public class SaveNotificationResource
     
     [Required]
     public int UserId { get; set; }
+    
+    [Required]
+    public string ActionsCodes { get; set; }
 }
