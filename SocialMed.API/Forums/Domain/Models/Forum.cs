@@ -1,4 +1,4 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Security.Domain.Models;
 
 namespace SocialMed.API.Forums.Domain.Models;
 
@@ -9,8 +9,7 @@ public class Forum
     public string Content { get; set; }
     
     public DateTime Date { get; set; }
-    //public DateOnly Date { get; set; }
-    
+
     //relationsship
     public int UserId { get; set; }
     public User User { get; set; }
