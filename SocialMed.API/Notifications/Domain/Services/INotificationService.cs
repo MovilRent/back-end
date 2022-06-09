@@ -7,5 +7,5 @@ public interface INotificationService
 {
     Task<IEnumerable<Notification>> ListAsync();
     Task<NotificationResponse> SaveAsync(Notification notification);
-   Task<NotificationResponse> DeleteAsync(int id);
+    Task<NotificationResponse> DeleteAsync(int id);
 }

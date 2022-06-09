@@ -8,8 +8,8 @@ namespace SocialMed.API.Notifications.Services;
 
 public class NotificationService: INotificationService
 {
-    private INotificationRepository _notificationRepository;
-    private IUnitOfWork _unitOfWork;
+    private readonly INotificationRepository _notificationRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
     public NotificationService(INotificationRepository notificationRepository, IUnitOfWork unitOfWork)
     {
@@ -44,7 +44,7 @@ public class NotificationService: INotificationService
     public async Task<NotificationResponse> DeleteAsync(int id)
     {
         var existingNotification = await _notificationRepository.FindByIdAsync(id);
-        if (existingNotification != null)
+        if (existingNotification == null)
             return new NotificationResponse("Notification not found.");
         try
         {

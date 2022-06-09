@@ -34,8 +34,8 @@ public class NotificationsController: ControllerBase
     [ProducesResponseType(typeof(NotificationResource), 201)]
     [ProducesResponseType(typeof(List<string>), 400)]
     [ProducesResponseType(500)]
-    [SwaggerResponse(201, "The forum was successfully created.", typeof(NotificationResource))]
-    [SwaggerResponse(400, "The forum data is not valid.")]
+    [SwaggerResponse(201, "The notification was successfully created.", typeof(NotificationResource))]
+    [SwaggerResponse(400, "The notification data is not valid.")]
     public async Task<IActionResult> PostAsync([FromBody] SaveNotificationResource resource)
     {
         if (!ModelState.IsValid)
@@ -46,9 +46,9 @@ public class NotificationsController: ControllerBase
         if (!result.Success)
             return BadRequest(result.Message);
 
-        var forumResource = _mapper.Map<Notification, NotificationResource>(result.Resource);
+        var notificationResource = _mapper.Map<Notification, NotificationResource>(result.Resource);
 
-        return Created(nameof(PostAsync), forumResource);
+        return Created(nameof(PostAsync), notificationResource);
     }
     
     [HttpDelete("{id}")]

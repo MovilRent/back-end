@@ -8,8 +8,8 @@ namespace SocialMed.API.Forums.Services;
 
 public class ForumService: IForumService
 {
-    private IForumRepository _forumRepository;
-    private IUnitOfWork _unitOfWork;
+    private readonly IForumRepository _forumRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
     public ForumService(IUnitOfWork unitOfWork, IForumRepository forumRepository)
     {

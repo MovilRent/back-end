@@ -24,14 +24,13 @@ public class NotificationRepository: BaseRepository, INotificationRepository
 
     public async Task<Notification> FindByIdAsync(int id)
     {
-        return await _context.Notifications
-            .FirstOrDefaultAsync(p => p.Id == id);
+        return await _context.Notifications.FindAsync(id);
     }
 
     public async Task<Notification> FindByTitleAndUserId(string title, int userId)
     {
         return await _context.Notifications
-            .FirstOrDefaultAsync(p => p.Title == title && p.UserId == userId);
+            .FirstOrDefaultAsync(p => p.Title.ToLower() == title.ToLower() && p.UserId == userId);
     }
 
     public void Remove(Notification notification)

@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<Forum> Forums { get; set; }
     public DbSet<Rating> Ratings { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<Notification> Notifications;
+    public DbSet<Notification> Notifications { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
     {
