@@ -2,15 +2,13 @@
 
 namespace SocialMed.API.Forums.Resources;
 
-public class ForumResource
+public class CommentResource
 {
     public int Id { get; set; }
-    public string Title { get; set; }
-    public string Content { get; set; }
     public DateTime Date { get; set; }
     //public DateOnly Date { get; set; }
+    public string Content { get; set; }
 
-    //relationsship
- 
     public UserResource User { get; set; }
+    public ForumResource Forum { get; set; }
 }

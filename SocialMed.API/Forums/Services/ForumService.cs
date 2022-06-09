@@ -1,8 +1,8 @@
 ﻿using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Forums.Domain.Repositories;
 using SocialMed.API.Forums.Domain.Services;
-using SocialMed.API.Forums.Domain.Services.Comunication;
-using SocialMed.API.SocialMedCenter.Domain.Repositories;
+using SocialMed.API.Forums.Domain.Services.Communication;
+using SocialMed.API.Shared.Domain.Repositories;
 
 namespace SocialMed.API.Forums.Services;
 

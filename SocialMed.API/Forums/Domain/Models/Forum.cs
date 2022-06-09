@@ -1,4 +1,4 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
+﻿using SocialMed.API.Security.Domain.Models;
 
 namespace SocialMed.API.Forums.Domain.Models;
 
