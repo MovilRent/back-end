@@ -1,4 +1,5 @@
-﻿using SocialMed.API.Shared.Domain.Repositories;
+﻿using System.Threading.Tasks;
+using SocialMed.API.Shared.Domain.Repositories;
 using SocialMed.API.Shared.Persistence.Context;
 
 namespace SocialMed.API.Shared.Persistence.Repositories;

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SocialMed.API.Forums.Resources;
 using SocialMed.API.Shared.Extensions;
 using SocialMed.API.SocialMedCenter.Domain.Models;
 using SocialMed.API.SocialMedCenter.Domain.Services;

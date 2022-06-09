@@ -1,8 +1,8 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
-using SocialMed.API.SocialMedCenter.Domain.Repositories;
+﻿using SocialMed.API.Security.Domain.Models;
+using SocialMed.API.Security.Domain.Repositories;
+using SocialMed.API.Security.Domain.Services.Communication;
+using SocialMed.API.Shared.Domain.Repositories;
 using SocialMed.API.SocialMedCenter.Domain.Services;
-using SocialMed.API.SocialMedCenter.Domain.Services.Comunication;
-
 namespace SocialMed.API.SocialMedCenter.Services;
 
 public class UserService : IUserService

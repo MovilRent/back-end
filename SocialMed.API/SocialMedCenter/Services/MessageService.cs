@@ -1,7 +1,6 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
-using SocialMed.API.SocialMedCenter.Domain.Services;
-using SocialMed.API.SocialMedCenter.Domain.Services.Comunication;
-
+﻿using SocialMed.API.Groups.Domain.Models;
+using SocialMed.API.Groups.Domain.Services;
+using SocialMed.API.Groups.Domain.Services.Communication;
 namespace SocialMed.API.SocialMedCenter.Services;
 
 public class MessageService: IMessageService

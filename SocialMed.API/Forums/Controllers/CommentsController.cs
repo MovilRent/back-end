@@ -4,6 +4,7 @@ using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Forums.Domain.Services;
 using SocialMed.API.Forums.Resources;
 using SocialMed.API.Shared.Extensions;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.Forums.Controllers;
 

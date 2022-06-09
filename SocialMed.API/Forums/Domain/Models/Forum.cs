@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualBasic.CompilerServices;
+using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Security.Domain.Models;
 
 namespace SocialMed.API.SocialMedCenter.Domain.Models;
 

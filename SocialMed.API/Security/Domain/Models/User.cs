@@ -1,5 +1,6 @@
 ﻿using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Groups.Domain.Models;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.Security.Domain.Models;
 

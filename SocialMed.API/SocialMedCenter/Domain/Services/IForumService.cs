@@ -1,5 +1,5 @@
-﻿using SocialMed.API.SocialMedCenter.Domain.Models;
-using SocialMed.API.SocialMedCenter.Domain.Services.Comunication;
+﻿using SocialMed.API.Forums.Domain.Services.Communication;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.SocialMedCenter.Domain.Services;
 
