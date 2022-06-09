@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SocialMed.API.Security.Domain.Models;
+using SocialMed.API.Security.Domain.Services;
 using SocialMed.API.Security.Resources;
 using SocialMed.API.Shared.Extensions;
-using SocialMed.API.SocialMedCenter.Domain.Models;
-using SocialMed.API.SocialMedCenter.Domain.Services;
-using SocialMed.API.SocialMedCenter.Resources;
 
-namespace SocialMed.API.SocialMedCenter.Controllers;
-
+namespace SocialMed.API.Security.Controllers;
 
 [ApiController]
 [Route("/api/v1/[controller]")]

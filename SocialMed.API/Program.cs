@@ -14,18 +14,13 @@ using SocialMed.API.Groups.Domain.Services;
 using SocialMed.API.Groups.Persistence.Repositories;
 using SocialMed.API.Groups.Services;
 using SocialMed.API.Security.Domain.Repositories;
+using SocialMed.API.Security.Domain.Services;
 using SocialMed.API.Security.Persistence.Repositories;
+using SocialMed.API.Security.Services;
 using SocialMed.API.Shared.Domain.Repositories;
 using SocialMed.API.Shared.Mapping;
 using SocialMed.API.Shared.Persistence.Context;
 using SocialMed.API.Shared.Persistence.Repositories;
-using SocialMed.API.SocialMedCenter.Domain.Services;
-using SocialMed.API.SocialMedCenter.Services;
-using ForumService = SocialMed.API.SocialMedCenter.Services.ForumService;
-using IForumService = SocialMed.API.SocialMedCenter.Domain.Services.IForumService;
-using MessageService = SocialMed.API.SocialMedCenter.Services.MessageService;
-using RatingService = SocialMed.API.SocialMedCenter.Services.RatingService;
-using ResourceToModelProfile = SocialMed.API.SocialMedCenter.Mapping.ResourceToModelProfile;
 
 var builder = WebApplication.CreateBuilder(args);
 

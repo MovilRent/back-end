@@ -87,7 +87,7 @@ public class ChatService: IChatService
         
 
         // Modify Fields
-        existingChat.MyMessages = chat.MyMessages;
+        existingChat.AllMessages = chat.AllMessages;
 
         try
         {
