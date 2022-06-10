@@ -20,7 +20,7 @@ public class ModelToResourceProfile : Profile
         CreateMap<Message, MessageResource>();
         CreateMap<Rating, RatingResource>();
         CreateMap<User, UserResource>();
-
+        CreateMap<Recommendation, RecommendationResource>();
         CreateMap<Notification, NotificationResource>();
         
     }
