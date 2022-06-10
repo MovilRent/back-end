@@ -67,6 +67,9 @@ builder.Services.AddScoped<IRatingService, RatingService>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 
+builder.Services.AddScoped<IRecommendationRepository,RecommendationRepository>();
+builder.Services.AddScoped<IRecommendationService, RecommendationService>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddAutoMapper(typeof(ModelToResourceProfile),
