@@ -1,28 +1,127 @@
 ﻿using SocialMed.API.Groups.Domain.Models;
+using SocialMed.API.Groups.Domain.Repositories;
 using SocialMed.API.Groups.Domain.Services;
 using SocialMed.API.Groups.Domain.Services.Communication;
+using SocialMed.API.Security.Domain.Repositories;
+using SocialMed.API.Shared.Domain.Repositories;
 
 namespace SocialMed.API.Groups.Services;
 
 public class MessageService: IMessageService
 {
-    public Task<IEnumerable<Message>> ListAsync()
+    private readonly IChatRepository _chatRepository;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IUserRepository _userRepository;
+    private readonly IMessageRepository _messageRepository;
+    public MessageService(
+        IUserRepository userRepository,
+        IChatRepository chatRepository, 
+        IUnitOfWork unitOfWork, 
+        IMessageRepository messageRepository)
     {
-        throw new NotImplementedException();
+        _chatRepository = chatRepository;
+        _messageRepository = messageRepository;
+        _unitOfWork = unitOfWork;
+        _userRepository = userRepository;
+    }
+    public async Task<IEnumerable<Message>> ListAsync()
+    {
+        return await _messageRepository.ListAsync();
+    }
+    
+
+    public async Task<IEnumerable<Message>> ListByChatIdAsync(int id)
+    {
+        return await _messageRepository.ListByChatIdAsync(id);
     }
 
-    public Task<MessageResponse> SaveAsync(Message message)
+    public async Task<MessageResponse> SaveAsync(Message message)
     {
-        throw new NotImplementedException();
+        // Validate user id
+
+        var existingUser = await _userRepository.FindByIdAsync(message.UserId);
+        var existingChat = await _userRepository.FindByIdAsync(message.ChatId);
+
+
+        if (existingUser == null||existingChat==null)
+            return new MessageResponse("Invalid User or Chat");
+        
+        // Validate Title
+        
+        try
+        {
+            // Add Tutorial
+            await _messageRepository.AddAsync(message);
+            // Complete Transaction
+            await _unitOfWork.CompleteAsync();
+            
+            // Return response
+            return new MessageResponse(message);
+
+        }
+        catch (Exception e)
+        {
+            // Error Handling
+            return new MessageResponse($"An error occurred while saving the new Message: {e.Message}");
+        }
     }
 
-    public Task<MessageResponse> UpdateAsync(int id, Message message)
+    public async Task<MessageResponse> UpdateAsync(int id, Message message)
     {
-        throw new NotImplementedException();
+        var existingMessage = await _messageRepository.FindByIdAsync(id);
+        
+        // Validate chat
+
+        if (existingMessage == null)
+            return new MessageResponse("Message not found.");
+
+        // Validate Chat users
+
+        var existingUser = await _userRepository.FindByIdAsync(message.UserId);
+
+        if (existingUser == null)
+            return new MessageResponse("Invalid User ");
+        
+
+        // Modify Fields
+        existingMessage.Content = message.Content;// pe
+
+        try
+        {
+            _messageRepository.Update(existingMessage);
+            await _unitOfWork.CompleteAsync();
+
+            return new MessageResponse(existingMessage);
+            
+        }
+        catch (Exception e)
+        {
+            // Error Handling
+            return new MessageResponse($"An error occurred while updating the Message: {e.Message}");
+        }
     }
 
-    public Task<MessageResponse> DeleteAsync(int id)
+    public async Task<MessageResponse> DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var existingMessage = await _messageRepository.FindByIdAsync(id);
+        
+        // Validate chat
+
+        if (existingMessage == null)
+            return new MessageResponse("Message not found.");
+        
+        try
+        {
+            _messageRepository.Remove(existingMessage);
+            await _unitOfWork.CompleteAsync();
+
+            return new MessageResponse(existingMessage);
+            
+        }
+        catch (Exception e)
+        {
+            // Error Handling
+            return new MessageResponse($"An error occurred while deleting the Message: {e.Message}");
+        }
     }
 }

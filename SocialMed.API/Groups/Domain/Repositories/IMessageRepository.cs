@@ -8,7 +8,7 @@ public interface IMessageRepository
     Task AddAsync(Message message);
     Task<Message> FindByIdAsync(int id);
     Task<IEnumerable<Message>> ListByChatIdAsync(int id);
-    Task<IEnumerable<Message>> ListByChatIdAndUserIdAsync(int id);
+    Task<IEnumerable<Message>> ListByChatIdAndUserIdAsync(int chatId,int userId);
 
     void Update(Message message);
     void Remove(Message message);

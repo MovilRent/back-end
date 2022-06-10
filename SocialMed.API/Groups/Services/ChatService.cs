@@ -29,9 +29,19 @@ public class ChatService: IChatService
         return await _chatRepository.FindByUserIdAsync(userId);
     }
 
+    public async Task<IEnumerable<Chat>> ListByUserDestinyIdAsync(int userId)
+    {
+        return await _chatRepository.FindByUserDestinyIdAsync(userId);
+    }
+
     public async Task<Chat> GetByIdAsync(int id)
     {
         return await _chatRepository.FindByIdAsync(id);
+    }
+
+    public async Task<Chat> GetByUserIdAndUserDestinyIdAsync(int userId, int userDestinyId)
+    {
+        return await _chatRepository.FindByUserIdAndUserDestinyIdAsync(userId,userDestinyId);
     }
 
     public async Task<ChatResponse> SaveAsync(Chat chat)
@@ -39,21 +49,20 @@ public class ChatService: IChatService
         // Validate user id
 
         var existingUser = await _userRepository.FindByIdAsync(chat.UserId);
+        var existingUserDestiny = await _userRepository.FindByIdAsync(chat.UserDestinyId);
 
-        if (existingUser == null)
+        if (existingUser == null||existingUserDestiny==null)
             return new ChatResponse("Invalid User");
         
         // Validate Title
 
         var existingChatWithThisUserDestiny = await _chatRepository.FindByUserIdAndUserDestinyIdAsync(chat.UserId,chat.UserDestinyId);
-
         if (existingChatWithThisUserDestiny != null)
             return new ChatResponse("Chat with user destiny already exists.");
         try
         {
             // Add Tutorial
             await _chatRepository.AddAsync(chat);
-            
             // Complete Transaction
             await _unitOfWork.CompleteAsync();
             
@@ -87,7 +96,7 @@ public class ChatService: IChatService
         
 
         // Modify Fields
-        existingChat.AllMessages = chat.AllMessages;
+        existingChat.AllMessages = chat.AllMessages;// pe
 
         try
         {

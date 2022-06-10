@@ -40,6 +40,14 @@ public class ChatRepository :BaseRepository, IChatRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<Chat>> FindByUserDestinyIdAsync(int id)
+    {
+        return await _context.Chats
+            .Where(p => p.UserDestinyId == id)
+            .Include(p => p.User)
+            .ToListAsync();
+    }
+
     public async Task<Chat> FindByUserIdAndUserDestinyIdAsync(int userid, int userDestinyid)
     {
         return await _context.Chats

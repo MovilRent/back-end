@@ -1,6 +1,11 @@
-﻿namespace SocialMed.API.Groups.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
 
-public class MessagesController
+namespace SocialMed.API.Groups.Controllers;
+
+
+[ApiController]
+[Route("/api/v1/[controller]")]
+public class MessagesController : ControllerBase
 {
     
 }
