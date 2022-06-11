@@ -1,6 +1,7 @@
 using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Groups.Domain.Models;
 using SocialMed.API.Medical_Interconsultation.Domain.Models;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.Security.Domain.Models;
 
@@ -22,4 +23,5 @@ public class User
     public IList<Comment> Comments { get; set; } = new List<Comment>();
     
     public IList<Recommendation> Recommendations { get; set; } = new List<Recommendation>();
+    public IList<Notification> Notifications { get; set; } = new List<Notification>();
 }

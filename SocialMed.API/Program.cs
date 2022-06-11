@@ -13,6 +13,10 @@ using SocialMed.API.Groups.Domain.Repositories;
 using SocialMed.API.Groups.Domain.Services;
 using SocialMed.API.Groups.Persistence.Repositories;
 using SocialMed.API.Groups.Services;
+using SocialMed.API.Medical_Interconsultation.Domain.Repositories;
+using SocialMed.API.Medical_Interconsultation.Domain.Services;
+using SocialMed.API.Medical_Interconsultation.Persistence.Repositories;
+using SocialMed.API.Medical_Interconsultation.Services;
 using SocialMed.API.Security.Domain.Repositories;
 using SocialMed.API.Security.Domain.Services;
 using SocialMed.API.Security.Persistence.Repositories;
@@ -25,6 +29,15 @@ using SocialMed.API.Shared.Persistence.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000", "https://movilrent-socialmed.web.app");
+        });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -72,6 +85,9 @@ builder.Services.AddScoped<IRatingService, RatingService>();
 builder.Services.AddScoped<IRecommendationRepository,RecommendationRepository>();
 builder.Services.AddScoped<IRecommendationService, RecommendationService>();
 
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
@@ -109,7 +125,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//CORS
+/*app.UseCors(x => x
+    .SetIsOriginAllowed(origin => true)
+    .AllowAnyMethod()
+    .AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowCredentials());*/
+
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 

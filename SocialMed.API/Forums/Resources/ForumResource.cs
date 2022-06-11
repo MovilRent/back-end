@@ -11,5 +11,5 @@ public class ForumResource
     
     //relationsship
  
-    public UserResource User { get; set; }
+    public int userId { get; set; }
 }

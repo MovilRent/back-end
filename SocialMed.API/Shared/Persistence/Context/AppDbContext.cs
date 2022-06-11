@@ -66,6 +66,11 @@ public class AppDbContext : DbContext
             .HasForeignKey(p => p.recommendationUserId)
             .HasForeignKey(p => p.recommendedUserId);
 
+        builder.Entity<User>()
+            .HasMany(p => p.Notifications)
+            .WithOne(p => p.User)
+            .HasForeignKey(p => p.UserId);
+
         ///////////////////////////////////////////
         builder.Entity<Comment>().ToTable("Comments");
         builder.Entity<Comment>().HasKey(p => p.Id);
@@ -103,6 +108,7 @@ public class AppDbContext : DbContext
         builder.Entity<Notification>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Notification>().Property(p => p.Title).IsRequired().HasMaxLength(30);
         builder.Entity<Notification>().Property(p => p.UserId).IsRequired();
+        builder.Entity<Notification>().Property(p => p.ReferencesToUserId).IsRequired();
         ///////////////////////////////////////////////////////
         builder.Entity<Chat>().ToTable("Chats");
         builder.Entity<Chat>().HasKey(p => p.Id);
