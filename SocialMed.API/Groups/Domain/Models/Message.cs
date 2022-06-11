@@ -8,7 +8,8 @@ public class Message
     
     public int UserId { get; set; }
     public User User { get; set; }
-
+    public int UserDestinyId { get; set; }
+    public User UserDestiny { get; set; }
     public string Content { get; set; }
     
     public int ChatId { get; set; }

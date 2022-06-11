@@ -40,10 +40,12 @@ public class MessageService: IMessageService
         // Validate user id
 
         var existingUser = await _userRepository.FindByIdAsync(message.UserId);
-        var existingChat = await _userRepository.FindByIdAsync(message.ChatId);
+        
+        var existingUserDestiny = await _userRepository.FindByIdAsync(message.UserDestinyId);
+        var existingChat = await _chatRepository.FindByIdAsync(message.ChatId);
 
 
-        if (existingUser == null||existingChat==null)
+        if (existingUser == null||existingChat==null||existingUserDestiny==null)
             return new MessageResponse("Invalid User or Chat");
         
         // Validate Title

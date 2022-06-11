@@ -96,7 +96,7 @@ public class ChatService: IChatService
         
 
         // Modify Fields
-        existingChat.AllMessages = chat.AllMessages;// pe
+        existingChat.Messages = chat.Messages;// pe
 
         try
         {

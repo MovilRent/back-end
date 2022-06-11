@@ -95,6 +95,24 @@ public class AppDbContext : DbContext
         builder.Entity<Notification>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Notification>().Property(p => p.Title).IsRequired().HasMaxLength(30);
         builder.Entity<Notification>().Property(p => p.UserId).IsRequired();
+        ///////////////////////////////////////////////////////
+        builder.Entity<Chat>().ToTable("Chats");
+        builder.Entity<Chat>().HasKey(p => p.Id);
+        builder.Entity<Chat>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Chat>().Property(p => p.UserId).IsRequired();
+        builder.Entity<Chat>().Property(p => p.UserDestinyId).IsRequired();
+        builder.Entity<Chat>()
+            .HasMany(p => p.Messages)
+            .WithOne(p => p.Chat)
+            .HasForeignKey(p => p.ChatId);
+        /////////////////////////////////////////////////////
+        builder.Entity<Message>().ToTable("Messages");
+        builder.Entity<Message>().HasKey(p => p.Id);
+        builder.Entity<Message>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Message>().Property(p => p.Content).IsRequired();
+        builder.Entity<Message>().Property(p => p.UserId).IsRequired();
+        builder.Entity<Message>().Property(p => p.UserDestinyId).IsRequired();
+        builder.Entity<Message>().Property(p => p.ChatId).IsRequired();
 
         // Apply Snake Case Naming Convention
         

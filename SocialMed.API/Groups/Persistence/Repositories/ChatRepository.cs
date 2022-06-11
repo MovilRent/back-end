@@ -15,9 +15,10 @@ public class ChatRepository :BaseRepository, IChatRepository
 
     public async Task<IEnumerable<Chat>> ListAsync()//***
     {
-        return await _context.Chats.
-            Include(p=>p.User).
-            ToListAsync();
+        return await _context.Chats
+            .Include(p=>p.User)
+            .Include(p=>p.UserDestiny)
+            .ToListAsync();
     }
 
     public async Task AddAsync(Chat chat)//***
@@ -29,6 +30,7 @@ public class ChatRepository :BaseRepository, IChatRepository
     {
         return await _context.Chats
             .Include(p => p.User)
+            .Include(p=>p.UserDestiny)
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
@@ -37,6 +39,7 @@ public class ChatRepository :BaseRepository, IChatRepository
         return await _context.Chats
             .Where(p => p.UserId == id)
             .Include(p => p.User)
+            .Include(p =>p.UserDestiny)
             .ToListAsync();
     }
 
@@ -45,6 +48,7 @@ public class ChatRepository :BaseRepository, IChatRepository
         return await _context.Chats
             .Where(p => p.UserDestinyId == id)
             .Include(p => p.User)
+            .Include(p=>p.UserDestiny)
             .ToListAsync();
     }
 

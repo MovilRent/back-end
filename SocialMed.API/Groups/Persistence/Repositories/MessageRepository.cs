@@ -12,11 +12,13 @@ public class MessageRepository :BaseRepository, IMessageRepository
     {
     }
 
-    public async Task<IEnumerable<Message>> ListAsync()//***
+    public async Task<IEnumerable<Message>> ListAsync() //***
     {
         return await _context.Messages.
-            Include(p=>p.Chat).
-            ToListAsync();
+            Include(p => p.Chat)
+            .Include(p => p.User)
+            .Include(p =>p.UserDestiny)
+    .ToListAsync();
     }
 
     public async Task AddAsync(Message message)//***

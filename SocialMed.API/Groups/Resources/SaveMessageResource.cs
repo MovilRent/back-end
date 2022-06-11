@@ -9,6 +9,10 @@ public class SaveMessageResource
     
     [Required]
     public int UserDestinyId { get; set; }
+    
+    [Required]
+    public int ChatId { get; set; }
+    
     [Required]
     public string Content { get; set; }
 }
