@@ -17,6 +17,13 @@ public class NotificationRepository: BaseRepository, INotificationRepository
         return await _context.Notifications.ToListAsync();
     }
 
+    public async Task<IEnumerable<Notification>> ListByUserIdAsync(int userId)
+    {
+        return await _context.Notifications
+            .Where(p => p.UserId == userId)
+            .ToListAsync();
+    }
+
     public async Task AddAsync(Notification notification)
     {
         await _context.AddAsync(notification);
@@ -30,7 +37,13 @@ public class NotificationRepository: BaseRepository, INotificationRepository
     public async Task<Notification> FindByTitleAndUserId(string title, int userId)
     {
         return await _context.Notifications
-            .FirstOrDefaultAsync(p => p.Title.ToLower() == title.ToLower() && p.UserId == userId);
+            .FirstOrDefaultAsync(p => p.Title == title && p.UserId == userId);
+    }
+
+    public async Task<Notification> FindByTitleAndUserIdAndReferencesToUserId(string title, int userId, int referencesToUserId)
+    {
+        return await _context.Notifications
+            .FirstOrDefaultAsync(p => p.Title == title && p.UserId == userId && p.ReferencesToUserId == referencesToUserId);
     }
 
     public void Remove(Notification notification)

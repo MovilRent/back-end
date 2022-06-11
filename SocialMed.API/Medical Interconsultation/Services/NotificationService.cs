@@ -2,19 +2,22 @@
 using SocialMed.API.Medical_Interconsultation.Domain.Repositories;
 using SocialMed.API.Medical_Interconsultation.Domain.Services;
 using SocialMed.API.Medical_Interconsultation.Domain.Services.Communication;
+using SocialMed.API.Security.Domain.Repositories;
 using SocialMed.API.Shared.Domain.Repositories;
 
 namespace SocialMed.API.Medical_Interconsultation.Services;
 
 public class NotificationService: INotificationService
 {
+    private readonly IUserRepository _userRepository;
     private readonly INotificationRepository _notificationRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public NotificationService(INotificationRepository notificationRepository, IUnitOfWork unitOfWork)
+    public NotificationService(INotificationRepository notificationRepository, IUnitOfWork unitOfWork, IUserRepository userRepository)
     {
         _notificationRepository = notificationRepository;
         _unitOfWork = unitOfWork;
+        _userRepository = userRepository;
     }
 
 
@@ -23,12 +26,29 @@ public class NotificationService: INotificationService
         return await _notificationRepository.ListAsync();
     }
 
+    public async Task<IEnumerable<Notification>> ListByUserIdAsync(int userId)
+    {
+        return await _notificationRepository.ListByUserIdAsync(userId);
+    }
+
+
     public async Task<NotificationResponse> SaveAsync(Notification notification)
     {
+        if (notification.UserId == notification.ReferencesToUserId)
+            return new NotificationResponse($"User and referenced user can't be the same person.");
+        var user = await _userRepository.FindByIdAsync(notification.UserId);
+        if (user == null)
+            return new NotificationResponse($"User with id {notification.UserId} doesn't exist.");
+        
+        var referencedUser = await _userRepository.FindByIdAsync(notification.ReferencesToUserId);
+        if (referencedUser == null)
+            return new NotificationResponse($"Referenced user with id {notification.ReferencesToUserId} doesn't exist.");
+        
         var existingNotificationWithTitleAndUser =
-            await _notificationRepository.FindByTitleAndUserId(notification.Title, notification.UserId);
+            await _notificationRepository.FindByTitleAndUserIdAndReferencesToUserId(notification.Title, notification.UserId, notification.ReferencesToUserId);
         if (existingNotificationWithTitleAndUser != null)
-            return new NotificationResponse($"Notification {notification.Title} from user {notification.UserId} already exists.");
+            return new NotificationResponse($"Notification {notification.Title} from user with id {notification.ReferencesToUserId} to user with id {notification.UserId} already exists.");
+        
         try
         {
             await _notificationRepository.AddAsync(notification);

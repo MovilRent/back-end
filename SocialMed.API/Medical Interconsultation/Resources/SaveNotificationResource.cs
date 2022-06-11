@@ -13,4 +13,7 @@ public class SaveNotificationResource
     
     [Required]
     public string ActionsCodes { get; set; }
+    
+    [Required]
+    public int ReferencesToUserId { get; set; }
 }
