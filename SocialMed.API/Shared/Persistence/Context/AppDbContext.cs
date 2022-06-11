@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Groups.Domain.Models;
 using SocialMed.API.Medical_Interconsultation.Domain.Models;
@@ -18,6 +19,8 @@ public class AppDbContext : DbContext
     public DbSet<Rating> Ratings { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Notification> Notifications { get; set; }
+    
+    public DbSet<Recommendation> Recommendations { get; set; }
 
     public AppDbContext(DbContextOptions options) : base(options)
     {
@@ -56,8 +59,13 @@ public class AppDbContext : DbContext
             .HasMany(p => p.Comments)
             .WithOne(p => p.User)
             .HasForeignKey(p => p.UserId);
-        
-        
+
+        builder.Entity<User>()
+            .HasMany(p => p.Recommendations)
+            .WithOne(p => p.userRecommendation)
+            .HasForeignKey(p => p.recommendationUserId)
+            .HasForeignKey(p => p.recommendedUserId);
+
         ///////////////////////////////////////////
         builder.Entity<Comment>().ToTable("Comments");
         builder.Entity<Comment>().HasKey(p => p.Id);
@@ -113,6 +121,13 @@ public class AppDbContext : DbContext
         builder.Entity<Message>().Property(p => p.UserId).IsRequired();
         builder.Entity<Message>().Property(p => p.UserDestinyId).IsRequired();
         builder.Entity<Message>().Property(p => p.ChatId).IsRequired();
+        
+        //////////////////////////////////////////////
+        builder.Entity<Recommendation>().ToTable("Recommendations");
+        builder.Entity<Recommendation>().HasKey(p => p.Id);
+        builder.Entity<Recommendation>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Recommendation>().Property(p => p.recommendationUserId).IsRequired();
+        builder.Entity<Recommendation>().Property(p => p.recommendedUserId).IsRequired();
 
         // Apply Snake Case Naming Convention
         

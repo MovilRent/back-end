@@ -23,6 +23,7 @@ public class ResourceToModelProfile : Profile
         CreateMap<SaveRatingResource, Rating>();
         CreateMap<SaveUserResource, User>();
         CreateMap<SaveNotificationResource, Notification>();
+        CreateMap<SaveRecommendationResource, Recommendation>();
     }
     
 }

@@ -69,6 +69,9 @@ builder.Services.AddScoped<IRatingService, RatingService>();
 
 
 
+builder.Services.AddScoped<IRecommendationRepository,RecommendationRepository>();
+builder.Services.AddScoped<IRecommendationService, RecommendationService>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
