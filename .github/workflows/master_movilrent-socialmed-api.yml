@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'movilrent-socialmed-api'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2322B5299F1C4561866C52BA05F0CD4E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_234089B072D64EC3923C310C480207BC }}
           package: .
