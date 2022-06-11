@@ -3,6 +3,7 @@ using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Forums.Domain.Repositories;
 using SocialMed.API.Shared.Persistence.Context;
 using SocialMed.API.Shared.Persistence.Repositories;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.Forums.Persistence.Repositories;
 

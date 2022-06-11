@@ -7,6 +7,7 @@ using SocialMed.API.Medical_Interconsultation.Domain.Models;
 using SocialMed.API.Medical_Interconsultation.Resources;
 using SocialMed.API.Security.Domain.Models;
 using SocialMed.API.Security.Resources;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.Shared.Mapping;
 

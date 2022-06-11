@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SocialMed.API.Forums.Resources;
+namespace SocialMed.API.SocialMedCenter.Resources;
 
 public class SaveForumResource
 {
@@ -12,10 +12,10 @@ public class SaveForumResource
     public string Content { get; set; }
     [Required]
     public DateTime Date { get; set; }
-
-    //relationship
+    
+    //relationsship
     
     [Required]
-    public string UserId { get; set; }
+    public int UserId { get; set; }
 
 }

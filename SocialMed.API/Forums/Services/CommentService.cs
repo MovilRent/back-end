@@ -4,6 +4,7 @@ using SocialMed.API.Forums.Domain.Services;
 using SocialMed.API.Forums.Domain.Services.Communication;
 using SocialMed.API.Security.Domain.Repositories;
 using SocialMed.API.Shared.Domain.Repositories;
+using SocialMed.API.SocialMedCenter.Domain.Models;
 
 namespace SocialMed.API.Forums.Services;
 

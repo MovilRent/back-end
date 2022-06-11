@@ -1,4 +1,4 @@
-﻿using SocialMed.API.Forums.Domain.Models;
+using SocialMed.API.Forums.Domain.Models;
 using SocialMed.API.Groups.Domain.Models;
 using SocialMed.API.Medical_Interconsultation.Domain.Models;
 

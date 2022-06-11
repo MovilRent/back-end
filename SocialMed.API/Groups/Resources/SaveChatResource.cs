@@ -5,8 +5,8 @@ namespace SocialMed.API.Groups.Resources;
 public class SaveChatResource
 {
     [Required]
-    public int User1Id { get; set; }
+    public int UserId { get; set; }
     [Required]
-    public int User2Id { get; set; }
+    public int UserDestinyId { get; set; }
     
 }

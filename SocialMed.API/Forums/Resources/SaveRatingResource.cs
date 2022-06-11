@@ -8,5 +8,5 @@ public class SaveRatingResource
     public int Rate { get; set; }
     //relationship
     [Required]
-    public string ForumId { get; set; }
+    public int ForumId { get; set; }
 }

@@ -1,4 +1,10 @@
+using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using SocialMed.API.Forums.Domain.Repositories;
 using SocialMed.API.Forums.Domain.Services;
 using SocialMed.API.Forums.Persistence.Repositories;
@@ -7,10 +13,6 @@ using SocialMed.API.Groups.Domain.Repositories;
 using SocialMed.API.Groups.Domain.Services;
 using SocialMed.API.Groups.Persistence.Repositories;
 using SocialMed.API.Groups.Services;
-using SocialMed.API.Medical_Interconsultation.Domain.Repositories;
-using SocialMed.API.Medical_Interconsultation.Domain.Services;
-using SocialMed.API.Medical_Interconsultation.Persistence.Repositories;
-using SocialMed.API.Medical_Interconsultation.Services;
 using SocialMed.API.Security.Domain.Repositories;
 using SocialMed.API.Security.Domain.Services;
 using SocialMed.API.Security.Persistence.Repositories;
@@ -22,29 +24,30 @@ using SocialMed.API.Shared.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:3000");
-        });
-});
-
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySQL(connectionString)
-    .LogTo(Console.WriteLine, LogLevel.Information).EnableServiceProviderCaching()
-    .EnableDetailedErrors());
+
+builder.Services.AddDbContext<AppDbContext>(
+    options => options.UseMySQL(connectionString)
+        .LogTo(Console.WriteLine, LogLevel.Information)
+        .EnableSensitiveDataLogging()
+        .EnableDetailedErrors());
+
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+
+
+//////////
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -64,19 +67,32 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IRatingRepository,RatingRepository>();
 builder.Services.AddScoped<IRatingService, RatingService>();
 
-builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
-builder.Services.AddScoped<INotificationService, NotificationService>();
+
 
 builder.Services.AddScoped<IRecommendationRepository,RecommendationRepository>();
 builder.Services.AddScoped<IRecommendationService, RecommendationService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddAutoMapper(typeof(ModelToResourceProfile),
+
+
+// AutoMapper Configuration
+
+builder.Services.AddAutoMapper(
+    typeof(ModelToResourceProfile), 
     typeof(ResourceToModelProfile));
 
 
+
+
 var app = builder.Build();
+
+
+
+
+
+
+// Validation for ensuring Database Objects are created
 
 
 using (var scope = app.Services.CreateScope())
@@ -86,9 +102,6 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
 }
 
 
-
-// Validation for ensuring Database Objects are created
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -97,8 +110,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseCors();
 
 app.UseAuthorization();
 
