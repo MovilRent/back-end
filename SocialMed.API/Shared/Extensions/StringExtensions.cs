@@ -1,4 +1,8 @@
-﻿namespace SocialMed.API.Shared.Extensions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace SocialMed.API.Shared.Extensions;
 
 public static class StringExtensions
 {
