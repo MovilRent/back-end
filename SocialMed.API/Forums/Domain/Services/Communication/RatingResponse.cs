@@ -11,5 +11,5 @@ public class RatingResponse : BaseResponse<Rating>
 
     public RatingResponse(Rating resource) : base(resource)
     {
-    } 
+    }
 }

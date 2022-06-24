@@ -28,7 +28,19 @@ public class UsersController : ControllerBase
         return resources;
 
     }
-    
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetByIdAsync(int id)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState.GetErrorMessages());
+        var result = await _userService.FindByIdAsync(id);
+        if (!result.Success)
+            return BadRequest(result.Message);
+        var userResource = _mapper.Map<User, UserResource>(result.Resource);
+        return Ok(userResource);
+    }
+
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] SaveUserResource resource)
     {
