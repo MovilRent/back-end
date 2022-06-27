@@ -8,6 +8,6 @@ public class CommentResource
     public DateTime Date { get; set; }
     public string Content { get; set; }
 
-    public UserResource User { get; set; }
+    public int userId { get; set; }
     public ForumResource Forum { get; set; }
 }

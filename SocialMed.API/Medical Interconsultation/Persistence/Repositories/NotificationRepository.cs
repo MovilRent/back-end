@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SocialMed.API.Medical_Interconsultation.Domain.Models;
 using SocialMed.API.Medical_Interconsultation.Domain.Repositories;
 using SocialMed.API.Shared.Persistence.Context;

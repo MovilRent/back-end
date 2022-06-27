@@ -2,6 +2,11 @@
 
 public abstract  class BaseResponse<T>
 {
+    
+    public string Message { get; set; }
+    public T Resource { get; set; }
+    public bool Success { get; set; }
+    
     protected BaseResponse(string message)
     {
         Success = false;
@@ -11,12 +16,8 @@ public abstract  class BaseResponse<T>
     
     protected BaseResponse(T resource)
     {
-        Success = false;
+        Success = true;
         Message = string.Empty;
         Resource = resource;
     }
-
-    public string Message { get; set; }
-    public T Resource { get; set; }
-    public bool Success { get; set; }
 }
