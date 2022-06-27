@@ -30,17 +30,20 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetByIdAsync(int id)
+    public async Task<UserResource> GetByIdAsync(int id)
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState.GetErrorMessages());
         var result = await _userService.FindByIdAsync(id);
-        if (!result.Success)
-            return BadRequest(result.Message);
-        var userResource = _mapper.Map<User, UserResource>(result.Resource);
-        return Ok(userResource);
+        var userResource = _mapper.Map<User, UserResource>(result);
+        return userResource;
     }
-
+    
+    [HttpGet("=%{email}&&{password}")]
+    public async Task<UserResource> GetByEmailAndPasswordAsync(string email, string password)
+    {
+        var result = await _userService.FindByEmailAndPasswordAsync(email, password);
+        var userResource = _mapper.Map<User, UserResource>(result);
+        return userResource;
+    }
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] SaveUserResource resource)
     {
