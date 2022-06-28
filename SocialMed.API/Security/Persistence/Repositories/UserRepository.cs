@@ -27,6 +27,12 @@ public class UserRepository : BaseRepository, IUserRepository
         return await _context.Users.FindAsync(id);
     }
 
+    public async Task<User> FindByEmailAndPasswordAsync(string email, string password)
+    {
+        return await _context.Users
+            .FirstOrDefaultAsync(p => p.Email == email&&p.Password==password);
+    }
+
     public async Task<User> FindByNameAsync(string name)
     {
         return await _context.Users

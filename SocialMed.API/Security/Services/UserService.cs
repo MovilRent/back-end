@@ -23,14 +23,28 @@ public class UserService : IUserService
 
     public async Task<User> FindByIdAsync(int id)
     {
-        return await _userRepository.FindByIdAsync(id);
+        var user = await _userRepository.FindByIdAsync(id);
+        if (user == null)
+            return new User();
+        return user;
     }
 
     public async Task<User> FindByEmailAsync(string email)
     {
-        return await _userRepository.FindByEmailAsync(email);
+        var user = await _userRepository.FindByEmailAsync(email);
+        if (user == null)
+            return new User();
+        return user;
     }
-    
+
+    public async Task<User> FindByEmailAndPasswordAsync(string email, string password)
+    {
+        var user = await _userRepository.FindByEmailAndPasswordAsync(email,password);
+        if (user == null)
+            return new User();
+        return user;
+    }
+
 
     public async Task<UserResponse> SaveAsync(User user)
     {

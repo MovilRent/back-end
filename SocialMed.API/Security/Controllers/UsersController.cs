@@ -28,7 +28,22 @@ public class UsersController : ControllerBase
         return resources;
 
     }
+
+    [HttpGet("{id}")]
+    public async Task<UserResource> GetByIdAsync(int id)
+    {
+        var result = await _userService.FindByIdAsync(id);
+        var userResource = _mapper.Map<User, UserResource>(result);
+        return userResource;
+    }
     
+    [HttpGet("=%{email}&&{password}")]
+    public async Task<UserResource> GetByEmailAndPasswordAsync(string email, string password)
+    {
+        var result = await _userService.FindByEmailAndPasswordAsync(email, password);
+        var userResource = _mapper.Map<User, UserResource>(result);
+        return userResource;
+    }
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] SaveUserResource resource)
     {
